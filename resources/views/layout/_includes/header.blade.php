@@ -16,13 +16,26 @@
 
     <nav class="blue">
         <div class="nav-wrapper">
-           <div class="container">
+            <div class="container">
                 <a href="#" class="brand-logo">@yield('titulo')</a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="{{route('admin.cursos')}}">Página Inicial</a></li>
-                <li><a href="{{route('admin.cursos')}}">Cursos</a></li>
-         
-            </ul>
-           </div>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                   
+                    @if(Auth::guest())
+                    <li><a href="{{route('site.home')}}">Página Inicial</a></li>
+                    <li><a href="{{route('site.login')}}">Entrar</a></li>
+                    @else
+                    <li>
+                        <a href="">Olá, {{Auth::user()->name}}</a>
+                    </li>
+                    
+                    <li><a href="{{route('site.home')}}">Página Inicial</a></li>
+                    <li><a href="{{route('admin.cursos')}}">Cursos</a></li>
+
+                    <li><a href="{{route('site.login.sair')}}">Sair</a></li>
+                    @endif
+
+
+                </ul>
+            </div>
         </div>
     </nav>

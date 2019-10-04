@@ -25,5 +25,6 @@ Cursos
         </div>
         @endforeach
     </div>
+    {{$cursos->links('vendor.pagination.materializecss')}}
 </div>
 @endsection
